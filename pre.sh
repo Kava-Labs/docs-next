@@ -12,7 +12,7 @@ mkdir -p "./${modulesDir}"
 kavaTmpDir="kava-tmp"
 
 mkdir -p "${kavaTmpDir}"
-git clone git@github.com:Kava-Labs/kava.git $kavaTmpDir
+git clone "https://github.com/Kava-Labs/kava.git" $kavaTmpDir
 cd $kavaTmpDir
 
 for D in ./x/*; do
