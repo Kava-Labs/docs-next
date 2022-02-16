@@ -1,16 +1,29 @@
 #!/usr/bin/env bash
 
 # Clone each module's markdown files
-mkdir -p Modules
+baseGitUrl="https://raw.githubusercontent.com/Kava-Labs"
 
-for D in ../x/*; do
-  if [ -d "${D}" ]; then
-    rm -rf "Modules/$(echo $D | awk -F/ '{print $NF}')"
-    mkdir -p "Modules/$(echo $D | awk -F/ '{print $NF}')" && cp -r $D/spec/* "$_"
+# Kava Modules docs
+modulesGitRepo="kava"
+modulesDir="Modules"
+
+mkdir -p "./${modulesDir}"
+
+kavaTmpDir="kava-tmp"
+
+mkdir -p "${kavaTmpDir}"
+git clone git@github.com:Kava-Labs/kava.git $kavaTmpDir
+cd $kavaTmpDir
+
+for D in ./x/*; do
+  if [ -d "${D}" ] && [ -d "${D}/spec" ]; then
+    rm -rf "../${modulesDir}/$(echo $D | awk -F/ '{print $NF}')"
+    mkdir -p "../${modulesDir}/$(echo $D | awk -F/ '{print $NF}')" && cp -r $D/spec/* "$_"
   fi
 done
 
-baseGitUrl="https://raw.githubusercontent.com/Kava-Labs"
+cd ..
+rm -rf $kavaTmpDir
 
 # Client docs (JavaScript SDK)
 clientGitRepo="javascript-sdk"
