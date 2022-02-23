@@ -1,9 +1,10 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, DefaultTheme } from 'styled-components'
 
 // example global styles 
 
-export const lightTheme = {
+export const lightTheme : DefaultTheme = {
    body: '#fffff',
+   text: '#000000',
 };
 
 
