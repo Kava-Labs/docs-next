@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 /pages/modules
+/pages/tools
+/pages/building
 
 # testing
 /coverage

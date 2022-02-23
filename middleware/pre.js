@@ -56,6 +56,10 @@ function extractDocsFromKavaRepo(){
 
     };
 
+    // removes the kava repo once we are done extracting the docs from it
+    // ensure it exists before removing to avoid errors
+    //(it should exist but just incase... usually happens when the proccess didn't exit gracefully) and post.js wasn't ran
+    existsSync(kavaDirPath) && rmSync(kavaDirPath, { recursive : true}); 
 }; 
 
 function fetchJavascriptSDKDocs(){
@@ -76,13 +80,15 @@ function fetchJavascriptSDKDocs(){
 }; 
 
 
-function fetchKavaToolsDocs(){
+function fetchToolsDocs(){
     const routeName = "tools";
     const branch = "master"; 
-    const toolsGitRepo = "kava-tools";
+    const kavaToolsRepo = "kava-tools";
+    const goToolsRepo = "go-tools";
     const toolDocs = ['auction', 'oracle'];
+    const goToolDocs = ['sentinel'];
     const outDir = resolve(__dirname, '..', 'pages', routeName);
-
+  
     // remove dir if it exists
     if (existsSync(outDir)){
         rmSync(outDir, { recursive : true})
@@ -91,23 +97,17 @@ function fetchKavaToolsDocs(){
     mkdirSync(outDir); 
 
     toolDocs.forEach(doc => {
-        execSync(`curl ${baseGitURL}/${toolsGitRepo}/${branch}/${doc}/README.md -o ${outDir}/${doc}.md`, {cwd: resolve(__dirname, '..')})
+        execSync(`curl ${baseGitURL}/${kavaToolsRepo}/${branch}/${doc}/README.md -o ${outDir}/${doc}.md`, {cwd: resolve(__dirname, '..')})
     }); 
 
 
+
+    goToolDocs.forEach(doc => {
+        execSync(`curl ${baseGitURL}/${goToolsRepo}/${branch}/${doc}/README.md -o ${outDir}/${doc}.md`, {cwd: resolve(__dirname, '..')})
+    })
+
 }; 
 
-function fetchGoToolsDocs(){
-
-}; 
-
-
-// removes the kava repo once we are done extracting the docs from it
-// ensure it exists before removing to avoid errors
-//(it should exist but just incase... usually happens when the proccess didn't exit gracefully) and post.js wasn't ran
-function rmKavaRepo(){
-    existsSync(kavaDirPath) && rmSync(kavaDirPath, { recursive : true}); 
-}; 
 
 
 
@@ -118,11 +118,11 @@ function rmKavaRepo(){
         const greenLog   = "\x1b[32m";
 
         console.log(magentaLog,'fetching remote docs ...');
-        // cloneKavaRepo();
-        // extractDocsFromKavaRepo();
-        // rmKavaRepo();
-        // fetchJavascriptSDKDocs();
-        fetchKavaToolsDocs();
+        cloneKavaRepo();
+        extractDocsFromKavaRepo();
+        fetchJavascriptSDKDocs();
+        fetchToolsDocs();
+       
         console.log(greenLog, 'success... fetched all remote docs');
     }
 )();
