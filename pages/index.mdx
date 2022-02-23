@@ -1,4 +1,5 @@
 import { RenderMe } from '../components/example.jsx'; 
+import { Layout } from '../components/Layout.jsx'; 
 
 # MDX + Next.js
 
@@ -6,3 +7,5 @@ Look, a button! 👇
 
 
 <RenderMe />
+
+export default ({ children }) => <Layout>{children}</Layout>
