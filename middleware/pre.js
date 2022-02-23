@@ -4,6 +4,7 @@ const { resolve } = require("path");
 
 const kavaDirPath = resolve(__dirname, '..', 'kava'); 
 const docDestinationPath = resolve(__dirname, '..', 'pages', 'modules');
+const baseGitURL = 'https://raw.githubusercontent.com/Kava-Labs';
 
 
 // resolves to a module spec sub dir inside the kava reop 
@@ -57,6 +58,49 @@ function extractDocsFromKavaRepo(){
 
 }; 
 
+function fetchJavascriptSDKDocs(){
+    // route name will be the sub dir name inside the pages directory 
+    const jsSDKRepoName = "javascript-sdk";
+    const branch = "master"; 
+    const routeName = 'building';
+    const docFileName = 'javascriptSDK.md';
+    const outDir = resolve(__dirname, '..', 'pages', routeName);
+    // remove dir if it exists
+    if (existsSync(outDir)){
+        rmSync(outDir, { recursive : true})
+    };
+    // make a fresh empty directory 
+    mkdirSync(outDir); 
+
+    execSync(`curl ${baseGitURL}/${jsSDKRepoName}/${branch}/README.md -o ${outDir}/${docFileName}`, {cwd: resolve(__dirname, '..')});
+}; 
+
+
+function fetchKavaToolsDocs(){
+    const routeName = "tools";
+    const branch = "master"; 
+    const toolsGitRepo = "kava-tools";
+    const toolDocs = ['auction', 'oracle'];
+    const outDir = resolve(__dirname, '..', 'pages', routeName);
+
+    // remove dir if it exists
+    if (existsSync(outDir)){
+        rmSync(outDir, { recursive : true})
+    };
+    // make a fresh empty directory 
+    mkdirSync(outDir); 
+
+    toolDocs.forEach(doc => {
+        execSync(`curl ${baseGitURL}/${toolsGitRepo}/${branch}/${doc}/README.md -o ${outDir}/${doc}.md`, {cwd: resolve(__dirname, '..')})
+    }); 
+
+
+}; 
+
+function fetchGoToolsDocs(){
+
+}; 
+
 
 // removes the kava repo once we are done extracting the docs from it
 // ensure it exists before removing to avoid errors
@@ -69,8 +113,16 @@ function rmKavaRepo(){
 
 (
     function(){
-        cloneKavaRepo();
-        extractDocsFromKavaRepo();
-        rmKavaRepo();
+        // colorful logs to make life prettier 
+        const magentaLog = "\x1b[35m";
+        const greenLog   = "\x1b[32m";
+
+        console.log(magentaLog,'fetching remote docs ...');
+        // cloneKavaRepo();
+        // extractDocsFromKavaRepo();
+        // rmKavaRepo();
+        // fetchJavascriptSDKDocs();
+        fetchKavaToolsDocs();
+        console.log(greenLog, 'success... fetched all remote docs');
     }
 )();
