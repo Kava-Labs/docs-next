@@ -1,18 +1,18 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
-
+import {Container} from '../styles/container.style';
 
 export const RenderMe = () => {
 
     const [count, setCount] = useState(0); 
 
-    return <div>
+    return <Container>
         <div>
         count: {count} 
         </div>
         
         <div>
-        <button onClick={()=> setCount(count++)}>
+        <button onClick={()=> setCount(count + 1)}>
             Add
         </button>
         </div>
@@ -20,10 +20,10 @@ export const RenderMe = () => {
         <div>
             <Link href={"about"}>
             <a>
-                I'm bored take me somewhere else
+                route me to about page 
             </a> 
             </Link>
           
         </div>
-    </div>
+    </Container>
 }; 
