@@ -1,8 +1,0 @@
-# IDEs
-*.vscode
-
-# Modules
-node_modules
-
-# Build
-.vuepress/dist
