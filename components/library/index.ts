@@ -28,6 +28,3 @@ export {
 
 // Our shared components
 export * from './Link';
-export * from './ToolTip';export { default as Toggle } from './Toggle';
-
-export * from './HoverTip';
