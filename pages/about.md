@@ -1,1 +1,0 @@
-hello from the about page, I am just a vanilla md file, please don't write js inside of me and if you see this message then routing works 
