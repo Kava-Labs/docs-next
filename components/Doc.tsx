@@ -1,10 +1,12 @@
+import {renderToString} from 'react-dom/server';
 
 // container to render the markdown file 
 function Doc({children}){
+    
 
     return <>
-        <main>
-            {children}
+        <main dangerouslySetInnerHTML={{__html:`${renderToString(children)}` }}>
+        
         </main>
     </>;
 
