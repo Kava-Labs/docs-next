@@ -1,11 +1,11 @@
-import {ThemeProvider} from 'styled-components';
-import {GlobalStyles, lightTheme} from '../styles/theme.config';
+import { CustomThemeProvider } from '../styles/ThemeToggle';
 
-function Docs({ Component, pageProps }) {
-  return <ThemeProvider theme={lightTheme}>
-    <GlobalStyles />
-    <Component {...pageProps}/>
-  </ThemeProvider>
+function DocsApp({ Component, pageProps }) {
+
+  return  <CustomThemeProvider>
+         <Component {...pageProps}/>
+   </CustomThemeProvider>
+
 }
 
-export default Docs;
+export default DocsApp;
