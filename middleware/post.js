@@ -3,7 +3,7 @@ const { resolve } = require("path");
 
 
 
-const docModulesPath = resolve(__dirname, '..', 'pages', 'modules'); 
+const docModulesPath = resolve(__dirname, '..', 'pages', 'cosmos', 'modules'); 
 const docsToolsPath = resolve(__dirname, '..', 'pages', 'tools'); 
 const docsBuildingPath = resolve(__dirname, '..', 'pages', 'building'); 
 (

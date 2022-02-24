@@ -1,9 +1,8 @@
-const {existsSync, mkdirSync, readdirSync, rmSync, copyFileSync} = require("fs"); 
+const {existsSync, mkdirSync, readdirSync, rmSync, readFileSync, writeFileSync} = require("fs"); 
 const { execSync } = require("child_process");
 const { resolve } = require("path");
 
 const kavaDirPath = resolve(__dirname, '..', 'kava'); 
-const docDestinationPath = resolve(__dirname, '..', 'pages', 'modules');
 const baseGitURL = 'https://raw.githubusercontent.com/Kava-Labs';
 
 
@@ -22,9 +21,26 @@ function cloneKavaRepo(){
     execSync('git clone https://github.com/Kava-Labs/kava.git', {cwd: resolve(__dirname, '..')});
 };
 
+// convert the md file to mdx and inject into Main component such that it renders properly with the React components 
+function toMDX(md, destinationPath, isPath = true){
+    // those two snippets allow us to render the markdown inside of the defined template 
+    const importSnippet = `import Main from 'components/Main';\n\n`;
+    const exportSnippet = `\n\nexport default ({children}) => <Main>{children}</Main>`; 
+
+    let fileContent;
+    if (isPath){
+        fileContent = readFileSync(md).toString().replace(/<!--.*-->/gms, '\n'); 
+    } else {
+        fileContent = md;
+    }
+   
+
+    writeFileSync(destinationPath, importSnippet + fileContent + exportSnippet);
+};
 
 function extractDocsFromKavaRepo(){
     const modulePaths = readdirSync(resolve(kavaDirPath, 'x'));
+    const docDestinationPath = resolve(__dirname, '..', 'pages', 'cosmos', 'modules');
 
     if (!existsSync(docDestinationPath)){
         mkdirSync(docDestinationPath); 
@@ -48,7 +64,7 @@ function extractDocsFromKavaRepo(){
             
                 // if the current subdir file ends with an .md let's copy it and paste it inside our destination subdir named after our module 
                 if (file.endsWith(".md")){
-                    copyFileSync(moduleSpecFilePath(moduleName, file), resolve(docDestinationPath, moduleName, file));
+                    toMDX(moduleSpecFilePath(moduleName, file), resolve(docDestinationPath, moduleName, `${file}x`));
                 };
 
             });
@@ -76,7 +92,9 @@ function fetchJavascriptSDKDocs(){
     // make a fresh empty directory 
     mkdirSync(outDir); 
 
-    execSync(`curl ${baseGitURL}/${jsSDKRepoName}/${branch}/README.md -o ${outDir}/${docFileName}`, {cwd: resolve(__dirname, '..')});
+    const md = execSync(`curl ${baseGitURL}/${jsSDKRepoName}/${branch}/README.md`);
+
+    toMDX(md.toString(), `${outDir}/${docFileName}x`, false);
 }; 
 
 
@@ -97,13 +115,14 @@ function fetchToolsDocs(){
     mkdirSync(outDir); 
 
     toolDocs.forEach(doc => {
-        execSync(`curl ${baseGitURL}/${kavaToolsRepo}/${branch}/${doc}/README.md -o ${outDir}/${doc}.md`, {cwd: resolve(__dirname, '..')})
+        const md = execSync(`curl ${baseGitURL}/${kavaToolsRepo}/${branch}/${doc}/README.md`);
+        toMDX(md.toString(), `${outDir}/${doc}.mdx`, false);
     }); 
 
 
-
     goToolDocs.forEach(doc => {
-        execSync(`curl ${baseGitURL}/${goToolsRepo}/${branch}/${doc}/README.md -o ${outDir}/${doc}.md`, {cwd: resolve(__dirname, '..')})
+        const md = execSync(`curl ${baseGitURL}/${goToolsRepo}/${branch}/${doc}/README.md`);
+        toMDX(md.toString(), `${outDir}/${doc}.mdx`, false);
     })
 
 }; 
