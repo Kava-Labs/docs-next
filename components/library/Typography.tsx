@@ -3,7 +3,7 @@ import {
   TypographyProps as MUITypographyProps,
 } from '@material-ui/core';
 import { CSSProperties } from 'react';
-import theme from '../../../webapp/src/theme';
+import theme from '../../styles/index';
 
 type CustomProps = {
   lineHeight?: number;
