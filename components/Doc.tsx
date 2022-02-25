@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(({ spacing }) => ({
   doc: {
@@ -6,7 +6,7 @@ const useStyles = makeStyles(({ spacing }) => ({
     padding: spacing(1),
     paddingLeft: spacing(3),
     minHeight: 'calc(100vh - 40px)',
-},
+  },
 }));
 
 type Props = {

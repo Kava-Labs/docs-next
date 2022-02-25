@@ -1,5 +1,5 @@
-function Brand(){
-    return <>Kava | Developer Docs</>;
-};
+function Brand() {
+  return <>Kava | Developer Docs</>;
+}
 
 export default Brand;

@@ -5,7 +5,6 @@ type Props = {
   tableOfContents: { title: string; id: string }[];
 };
 function RightNav({ tableOfContents }: Props) {
-
   return (
     <>
       <Box display="flex" flexDirection="column">

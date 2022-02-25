@@ -6,7 +6,7 @@ import Doc from './Doc';
 import { useEffect, useState } from 'react';
 import { renderToString } from 'react-dom/server';
 import { Box } from './library';
-import transformHtml from "../helpers/transformHtml";
+import transformHtml from '../helpers/transformHtml';
 
 function Main({ children }) {
   const [html, setHtml] = useState('');
