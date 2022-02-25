@@ -2,7 +2,7 @@ import {
   Palette,
   PaletteOptions,
 } from '@material-ui/core/styles/createPalette';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles';
 import { TypographyOptions } from '@material-ui/core/styles/createTypography';
 import { Shadows } from '@material-ui/core/styles/shadows';
 
@@ -191,7 +191,7 @@ const breakpoints: BreakpointsOptions = {
   values: { xs: 0, sm: 600, md: 900, lg: 1118, xl: 1536 },
 };
 
-export const theme = createMuiTheme({
+export const theme = createTheme({
   palette,
   typography,
   shadows,
@@ -201,7 +201,7 @@ export const theme = createMuiTheme({
   overrides: createOverrides({ palette: palette as Palette, shape, shadows }),
 });
 
-export const darkTheme = createMuiTheme({
+export const darkTheme = createTheme({
   palette: paletteDark,
   typography,
   shadows: shadowsDark,
