@@ -1,4 +1,4 @@
-import { Link } from './library';
+import { H5, Link } from './library';
 import { SocialLink } from '../types';
 import { useMediaQuery, useTheme } from '@material-ui/core';
 
@@ -23,7 +23,7 @@ function SocialLinks() {
 
   const displayedLinks = links.map((link, index) => (
     <Link href={link.url} key={index} style={{ marginRight: '24px' }}>
-      {link.name}
+      <H5 color="textPrimary"> {link.name}</H5>
     </Link>
   ));
 

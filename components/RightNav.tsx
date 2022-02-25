@@ -1,5 +1,4 @@
-import { Box, Link } from './library';
-import { H3 } from './library/Typography';
+import { Box, H5, H6, Link } from './library';
 import { InternalNavLink } from '../types';
 import { useMediaQuery, useTheme } from '@material-ui/core';
 
@@ -20,11 +19,11 @@ function RightNav({ internalNavLinks }: Props) {
   ) : (
     <>
       <Box display="flex" flexDirection="column">
-        <H3>On This Page</H3>
+        <H5>On This Page</H5>
         {internalNavLinks.map(({ title, id }, key) => {
           return (
             <Link key={key} href={'#' + id}>
-              {title}
+              <H6 color="textSecondary"> {title}</H6>
             </Link>
           );
         })}
