@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core';
 import { Box, H2 } from './library';
 
-const useStyles = makeStyles(({ palette, typography }) => ({
+const useStyles = makeStyles(({ palette }) => ({
   leftNav: {
     backgroundColor: palette.grey[200],
   },

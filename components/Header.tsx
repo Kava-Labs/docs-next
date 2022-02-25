@@ -1,9 +1,8 @@
 import SocialLinks from "./SocialLinks";
 import Brand from "./Brand";
-import { createStyles, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => (
-  createStyles({
+const useStyles = makeStyles(({ spacing }) => ({
   headerWrapper: {
     backgroundColor: "grey",
     height: "50px",
@@ -11,7 +10,7 @@ const useStyles = makeStyles((theme) => (
     justifyContent: "space-between",
     alignItems: "center",
   },
-})));
+}));
 
 function Header() {
   const classes = useStyles();

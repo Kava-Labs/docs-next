@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import { Box, Link } from './library';
 import { H3 } from './library/Typography';
 
-// right Nav which will be on the right side of the markdown
 type Props = {
   toc: { title: string; id: string }[];
 };

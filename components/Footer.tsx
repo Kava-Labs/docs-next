@@ -1,12 +1,12 @@
-import { createStyles, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => (
-  createStyles({
-      footerWrapper: {
-          height: '40px',
-          backgroundColor: 'grey',
-      },
-  })));
+const useStyles = makeStyles(({ spacing }) => ({
+  footerWrapper: {
+    height: '40px',
+    backgroundColor: 'grey',
+  },
+}));
+
 
 function Footer() {
     const classes = useStyles();

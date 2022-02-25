@@ -1,4 +1,3 @@
-// search bar
 function Search() {
   return (
     <>
