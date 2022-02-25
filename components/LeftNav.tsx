@@ -5,6 +5,9 @@ const useStyles = makeStyles(({ palette }) => ({
   leftNav: {
     backgroundColor: palette.grey[200],
   },
+  listItem: {
+    margin: '6px',
+  },
 }));
 
 function LeftNav() {
@@ -13,10 +16,10 @@ function LeftNav() {
   return (
     <>
       <Box width="15%" className={classes.leftNav}>
-        <li>Intro to Kava Network</li>
-        <li>Develop on Ethereum</li>
-        <li>Develop on Cosmos</li>
-        <li>Participate in Network</li>
+        <li className={classes.listItem}>Intro to Kava Network</li>
+        <li className={classes.listItem}>Develop on Ethereum</li>
+        <li className={classes.listItem}>Develop on Cosmos</li>
+        <li className={classes.listItem}>Participate in Network</li>
       </Box>
     </>
   );

@@ -22,7 +22,7 @@ function RightNav({ internalNavLinks }: Props) {
         <H5>On This Page</H5>
         {internalNavLinks.map(({ title, id }, key) => {
           return (
-            <Link key={key} href={'#' + id}>
+            <Link style={{ margin: '5px' }} key={key} href={'#' + id}>
               <H6 color="textSecondary"> {title}</H6>
             </Link>
           );
