@@ -1,12 +1,9 @@
-type TransformedHTML = {
-  html: string;
-  tableOfContents: { title: string; id: string }[];
-};
-
 // a bit complex but performant
 // we build the string as we go time O(N) space O(N  + (headerContentLength * num of header tags))
 // note the nested loop is not going to cause this to be O(N^2)
 // because before we break out we increment i by how far we got with j similar to how sliding window works
+
+import { TransformedHTML } from '../types';
 
 export default function transformHtml(htmlString: string): TransformedHTML {
   let transformedHTML = '';

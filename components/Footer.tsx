@@ -1,9 +1,8 @@
 import { makeStyles } from '@material-ui/core';
 
-const useStyles = makeStyles(({ spacing }) => ({
+const useStyles = makeStyles(() => ({
   footerWrapper: {
     height: '40px',
-    backgroundColor: 'grey',
     display: 'flex',
     justifyContent: 'space-evenly',
   },

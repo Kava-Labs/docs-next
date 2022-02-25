@@ -1,9 +1,5 @@
 import { Link } from './library';
-
-interface SocialLink {
-  name: string;
-  url: string;
-}
+import { SocialLink } from '../types';
 
 function SocialLinks() {
   const links: SocialLink[] = [
@@ -22,7 +18,7 @@ function SocialLinks() {
   ];
 
   const displayedLinks = links.map((link, index) => (
-    <Link href={link.url} key={index}>
+    <Link href={link.url} key={index} style={{ marginRight: '24px' }}>
       {link.name}
     </Link>
   ));

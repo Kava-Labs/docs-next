@@ -4,10 +4,15 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(({ spacing }) => ({
   headerWrapper: {
-    backgroundColor: 'grey',
-    height: '50px',
+    backgroundColor: 'white',
+    height: '91px',
     display: 'flex',
     justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  linksWrapper: {
+    display: 'flex',
+    marginRight: '24px',
     alignItems: 'center',
   },
 }));
@@ -19,9 +24,7 @@ function Header() {
       <div style={{ marginLeft: '24px' }}>
         <Brand />
       </div>
-      <div
-        style={{ display: 'flex', marginRight: '24px', alignItems: 'center' }}
-      >
+      <div className={classes.linksWrapper}>
         <SocialLinks />
       </div>
     </header>
