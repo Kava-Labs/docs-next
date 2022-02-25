@@ -13,6 +13,7 @@ const useStyles = makeStyles(() => ({
   mobileHeaderWrapper: {
     display: 'flex',
     justifyContent: 'space-between',
+    marginLeft: '24px',
   },
   linksWrapper: {
     display: 'flex',
