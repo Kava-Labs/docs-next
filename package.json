@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.1",
@@ -21,8 +22,40 @@
     "react-dom": "17.0.2",
     "remark-gfm": "1.0.0"
   },
+  "eslintConfig": {
+    "extends": [
+      "prettier"
+    ],
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx"
+          ],
+          "paths": [
+            "."
+          ]
+        }
+      }
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --cache --fix --max-warnings=0",
+    "*.{js,ts,jsx,tsx,css,md,yml,json,html}": "prettier --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "devDependencies": {
-    "eslint": "8.9.0",
-    "eslint-config-next": "12.1.0"
+    "eslint": "^8.9.0",
+    "eslint-config-next": "12.1.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.4",
+    "prettier": "^2.5.1"
   }
 }
