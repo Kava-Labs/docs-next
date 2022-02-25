@@ -9,15 +9,15 @@ function SocialLinks() {
     const links: SocialLink[] = [
         {
             name: "Github",
-            url: "",
+            url: "https://github.com/Kava-Labs",
         },
         {
             name: "Discord",
-            url: "",
+            url: "https://discord.gg/JJYnuCx",
         },
         {
             name: "Twitter",
-            url: "",
+            url: "https://twitter.com/kava_labs",
         },
     ];
 
