@@ -1,7 +1,11 @@
 import { Link } from './library';
 import { SocialLink } from '../types';
+import { useMediaQuery, useTheme } from '@material-ui/core';
 
 function SocialLinks() {
+  const theme = useTheme();
+  const isMobile = !useMediaQuery(theme.breakpoints.up('md'));
+
   const links: SocialLink[] = [
     {
       name: 'Github',
@@ -23,7 +27,13 @@ function SocialLinks() {
     </Link>
   ));
 
-  return <>{displayedLinks}</>;
+  return isMobile ? (
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      {displayedLinks}
+    </div>
+  ) : (
+    <>{displayedLinks}</>
+  );
 }
 
 export default SocialLinks;

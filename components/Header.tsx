@@ -1,14 +1,18 @@
 import SocialLinks from './SocialLinks';
 import Brand from './Brand';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, useMediaQuery, useTheme } from '@material-ui/core';
 
-const useStyles = makeStyles(({ spacing }) => ({
-  headerWrapper: {
+const useStyles = makeStyles(() => ({
+  desktopHeaderWrapper: {
     backgroundColor: 'white',
     height: '91px',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  mobileHeaderWrapper: {
+    display: 'flex',
+    justifyContent: 'space-between',
   },
   linksWrapper: {
     display: 'flex',
@@ -19,8 +23,20 @@ const useStyles = makeStyles(({ spacing }) => ({
 
 function Header() {
   const classes = useStyles();
-  return (
-    <header className={classes.headerWrapper}>
+  const theme = useTheme();
+  const isMobile = !useMediaQuery(theme.breakpoints.up('md'));
+
+  return isMobile ? (
+    <header className={classes.mobileHeaderWrapper}>
+      <Brand />
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div>Hamburger</div>
+        <div>Table of Contents</div>
+        <SocialLinks />
+      </div>
+    </header>
+  ) : (
+    <header className={classes.desktopHeaderWrapper}>
       <div style={{ marginLeft: '24px' }}>
         <Brand />
       </div>

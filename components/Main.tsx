@@ -7,8 +7,12 @@ import { useEffect, useState } from 'react';
 import { renderToString } from 'react-dom/server';
 import { Box } from './library';
 import transformHtml from '../helpers/transformHtml';
+import { useMediaQuery, useTheme } from '@material-ui/core';
 
 function Main({ children }) {
+  const theme = useTheme();
+  const isMobile = !useMediaQuery(theme.breakpoints.up('md'));
+
   const [html, setHtml] = useState('');
   const [internalNavLinks, setInternalNavLinks] = useState([]);
 
@@ -22,7 +26,7 @@ function Main({ children }) {
     <>
       <Header />
       <Box display="flex">
-        <LeftNav />
+        {isMobile ? <></> : <LeftNav />}
         <Doc html={html} />
         <RightNav internalNavLinks={internalNavLinks} />
       </Box>
