@@ -24,10 +24,8 @@ function Header() {
           <SocialLinks />
         </div>
       </header>
-
-
     );
 }
 
-
 export default Header;
+

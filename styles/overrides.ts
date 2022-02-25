@@ -30,8 +30,8 @@ export const createOverrides = ({
         color: 'inherit',
       },
       '@font-face': [
-        // fonts didn;t work 
-      ] as unknown as CSSProperties, 
+        // fonts didn;t work
+      ] as unknown as CSSProperties,
     },
   };
 

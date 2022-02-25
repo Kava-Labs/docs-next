@@ -1,10 +1,6 @@
 import Main from 'components/Main';
 
-
-
-
 # Messages
-
 
 MsgDeposit adds liquidity to a pool:
 
@@ -33,6 +29,7 @@ type MsgWithdraw struct {
 	Deadline  int64          `json:"deadline" yaml:"deadline"`
 }
 ```
+
 When withdrawing from a pool, the user specifies the amount of shares they want to withdraw, as well as the minimum amount of tokenA and tokenB that they must receive for the transaction to succeed. When withdrawing, the `ShareRecord` of the user will be decremented by the corresponding amount of shares, or deleted in the case that all liquidity has been withdrawn. If all shares of a pool have been withdrawn from a pool, the `PoolRecord` will be deleted.
 
 MsgSwapExactForTokens trades an exact amount of input tokens for a variable amount of output tokens, with a specified maximum slippage tolerance.
@@ -65,5 +62,6 @@ type MsgSwapForExactTokens struct {
 
 When trading variable inputs for exact outputs, the fee swap fee is removed from TokenA and added to the pool, then slippage is calculated based on the actual amount of TokenA required to acquire the exact TokenB amount versus the desired TokenA required. If the realized slippage of the trade is greater than the specified slippage tolerance, the transaction fails.
 
+export default ({children}) => <Main>{children}</Main
 
-export default ({children}) => <Main>{children}</Main>
+>

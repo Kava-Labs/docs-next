@@ -1,9 +1,22 @@
+import { makeStyles } from '@material-ui/core';
+import { Box, H2 } from './library';
 
-// left nav or left panel will contain a link for all the documentations we want to render
-function LeftNav(){
+const useStyles = makeStyles(({ palette, typography }) => ({
+  leftNav: {
+    backgroundColor: palette.grey[200],
+  },
+}));
 
-    return <div>Table of Contents</div>;
-};
+function LeftNav() {
+  const classes = useStyles();
 
+  return (
+    <>
+      <Box width="15%" className={classes.leftNav}>
+        <H2>left nav</H2>
+      </Box>
+    </>
+  );
+}
 
 export default LeftNav;

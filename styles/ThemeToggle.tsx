@@ -10,11 +10,8 @@ import {
 
 import lightTheme from './index';
 
-
-
 export type ThemeType = 'dark' | 'light';
 const kavaThemeKey = 'kava-theme';
-
 
 export interface ThemeContextProps {
   themeType: ThemeType;
@@ -29,7 +26,9 @@ export const CustomThemeContext = createContext<ThemeContextProps>({
 export const CustomThemeProvider: FC = ({ children }) => {
   // const { themeType, toggleTheme, theme } = useThemeToggle();
   return (
-    <CustomThemeContext.Provider value={{ themeType: "light", toggleTheme: () => {} }}>
+    <CustomThemeContext.Provider
+      value={{ themeType: 'light', toggleTheme: () => {} }}
+    >
       <ThemeProvider theme={lightTheme}>
         <CssBaseline />
         {children}
@@ -37,7 +36,6 @@ export const CustomThemeProvider: FC = ({ children }) => {
     </CustomThemeContext.Provider>
   );
 };
-
 
 /**
  * @summary For use in storybook. Wraps children in theme with a toggler button on top

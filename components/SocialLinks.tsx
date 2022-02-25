@@ -26,7 +26,6 @@ function SocialLinks() {
     ));
 
     return <>{displayedLinks}</>;
-
 }
 
 export default SocialLinks;
