@@ -4,6 +4,7 @@ import RightNav from "./RightNav";
 import Footer from "./Footer";
 import Doc from "./Doc";
 import { createStyles, makeStyles } from "@material-ui/core";
+import { useEffect } from "react";
 
 // brings it all together in this case children will be the mardown file
 // markdown file will be rendered inside the Doc Component which is a seperate "container" for the mdx file to keep
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme) =>
 
 function Main({ children }) {
   const classes = useStyles();
+
   return (
     <>
       <div className={classes.mainWrapper}>
