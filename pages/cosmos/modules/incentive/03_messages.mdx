@@ -1,8 +1,5 @@
 import Main from 'components/Main';
 
-
-
-
 # Messages
 
 Users claim rewards using messages that correspond to each claim type.
@@ -42,5 +39,6 @@ type MsgClaimSwapReward struct {
 - The number of coins transferred is determined by the multiplier in the message. For example, the multiplier equals 1.0, 100% of the claim's reward value is transferred. If the multiplier equals 0.5, 50% of the claim's reward value is transferred.
 - The corresponding claim object is reset to zero in the store
 
+export default ({children}) => <Main>{children}</Main
 
-export default ({children}) => <Main>{children}</Main>
+>

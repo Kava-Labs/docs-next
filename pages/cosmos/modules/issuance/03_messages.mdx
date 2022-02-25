@@ -1,8 +1,5 @@
 import Main from 'components/Main';
 
-
-
-
 # Messages
 
 The issuer can issue new tokens using a `MsgIssueTokens`
@@ -18,8 +15,8 @@ type MsgIssueTokens struct {
 
 ## State Modifications
 
-* New tokens are minted from the issuance module account
-* New tokens are transferred from the module account to the receiver
+- New tokens are minted from the issuance module account
+- New tokens are transferred from the module account to the receiver
 
 The issuer can redeem (burn) tokens using `MsgRedeemTokens`.
 
@@ -33,8 +30,8 @@ type MsgRedeemTokens struct {
 
 ## State Modifications
 
-* Tokens are transferred from the owner address to the issuer module account
-* Tokens are burned
+- Tokens are transferred from the owner address to the issuer module account
+- Tokens are burned
 
 Addresses can be added to the blocked list using `MsgBlockAddress`
 
@@ -49,8 +46,8 @@ type MsgBlockAddress struct {
 
 ## State Modifications
 
-* The address is added to the block list, which prevents the account from holding coins of that denom
-* Tokens are sent back to the issuer
+- The address is added to the block list, which prevents the account from holding coins of that denom
+- Tokens are sent back to the issuer
 
 The issuer can pause or un-pause the contract using `MsgChangePauseStatus`
 
@@ -65,8 +62,9 @@ type MsgChangePauseStatus struct {
 
 ## State Modifications
 
-* The `Paused` value of the correspond asset is updated to `Status`.
-* Issuance and redemption are paused if `Paused` is false
+- The `Paused` value of the correspond asset is updated to `Status`.
+- Issuance and redemption are paused if `Paused` is false
 
+export default ({children}) => <Main>{children}</Main
 
-export default ({children}) => <Main>{children}</Main>
+>

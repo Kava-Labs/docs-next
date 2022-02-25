@@ -10,11 +10,11 @@ Sentinel will keep a CDP’s collateral ratio within a range by repaying (or wit
 
 Sentinel has been designed to be as reliable as possible. To further increase reliability, operators can run more than one copy of sentinel on different servers, using different kava nodes.
 
-  1) Install go
-  2) Install sentinel with `git clone <this repo>`, `make install`  
-       (`go install github.com/kava-labs/go-tools/sentinel` should also work)
-  3) Create your `config.toml` file based off `config.toml.example`. Documentation can be found in `main.go`
-  4) Run `sentinel` (with `config.toml` in the current directory, or in `~/.sentinel/`)
+1. Install go
+2. Install sentinel with `git clone <this repo>`, `make install`  
+   (`go install github.com/kava-labs/go-tools/sentinel` should also work)
+3. Create your `config.toml` file based off `config.toml.example`. Documentation can be found in `main.go`
+4. Run `sentinel` (with `config.toml` in the current directory, or in `~/.sentinel/`)
 
 ## Design
 
@@ -30,5 +30,6 @@ Sentinel achieves safety by ensuring, per iteration, all queried state is from t
 - improved secret handling
 - support for CDPs of different denoms
 
+export default ({children}) => <Main>{children}</Main
 
-export default ({children}) => <Main>{children}</Main>
+>

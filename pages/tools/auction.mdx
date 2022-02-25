@@ -135,6 +135,7 @@ sudo systemctl start auction.service
 ```
 
 To view the logs of the auction process:
+
 ```
 sudo journalctl -u auction -f
 ```
@@ -143,5 +144,6 @@ sudo journalctl -u auction -f
 
 At the specified crontab frequency, the auction client will query the kava blockchain for ongoing auctions. Using the configured parameters, it will bid on auctions if they meet the requirements. For purposes of determining margin, the client queries the Binance v3 exchange API for the current spot price of the collateral asset. If Binance is not responding, CoinGecko is used as a backup.
 
+export default ({children}) => <Main>{children}</Main
 
-export default ({children}) => <Main>{children}</Main>
+>

@@ -9,7 +9,6 @@ import { Shadows } from '@material-ui/core/styles/shadows';
 import { createOverrides } from './overrides';
 import { BreakpointsOptions } from '@material-ui/core/styles/createBreakpoints';
 
-
 export * from './ThemeWrapper';
 
 const palette: PaletteOptions = {

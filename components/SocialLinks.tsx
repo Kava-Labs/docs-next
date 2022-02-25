@@ -1,12 +1,7 @@
+// external social links Github, Twitter, etc component
 
-// external social links Github, Twitter, etc component 
-
-function SocialLinks(){
-
-    return <>
-        
-    </>;
-}; 
-
+function SocialLinks() {
+  return <></>;
+}
 
 export default SocialLinks;

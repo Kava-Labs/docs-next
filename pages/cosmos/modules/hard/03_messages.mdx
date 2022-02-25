@@ -1,8 +1,5 @@
 import Main from 'components/Main';
 
-
-
-
 # Messages
 
 There are three messages in the hard module. Deposit allows users to deposit assets to the hard module. In version 2, depositors will be able to use their deposits as collateral to borrow from hard. Withdraw removes assets from the hard module, returning them to the user. Claim allows users to claim earned HARD tokens.
@@ -58,5 +55,6 @@ type MsgLiquidate struct {
 
 This message deletes `Borrower's` `Deposit` and `Borrow` objects if they are below the required LTV ratio. The keeper (the sender of the message) is rewarded a portion of the borrow position, according to the `KeeperReward` governance parameter. The coins from the `Deposit` are then sold at auction (see [auction module](../../auction/spec/README.md)), which any remaining tokens returned to `Borrower`. After being liquidated, `Borrower` no longer must repay the borrow amount. The global variables for `TotalSupplied` and `TotalBorrowed` are updated.
 
+export default ({children}) => <Main>{children}</Main
 
-export default ({children}) => <Main>{children}</Main>
+>

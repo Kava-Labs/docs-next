@@ -44,7 +44,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --cache --fix --max-warnings=0",
-    "*.{js,ts,jsx,tsx,css,md,yml,json,html}": "prettier --write"
+    "*.{js,ts,jsx,tsx,css,md,mdx,yml,json,html}": "prettier --write"
   },
   "husky": {
     "hooks": {

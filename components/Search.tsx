@@ -1,12 +1,10 @@
-
-// search bar 
-function Search(){
-
-    return <>
-        <input />
-    </>;
-};
-
-
+// search bar
+function Search() {
+  return (
+    <>
+      <input />
+    </>
+  );
+}
 
 export default Search;

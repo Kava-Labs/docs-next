@@ -1,12 +1,7 @@
-
 // contains Kava logo and text "Developer Docs"
 
-function Brand(){
+function Brand() {
+  return <></>;
+}
 
-    return <>
-        
-    </>;
-};
-
-
-export default Brand; 
+export default Brand;

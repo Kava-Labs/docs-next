@@ -1,7 +1,5 @@
 import Main from 'components/Main';
 
-
-
 1. **[Concepts](01_concepts.md)**
 2. **[State](02_state.md)**
 3. **[Messages](03_messages.md)**
@@ -29,5 +27,6 @@ Permissions scope the allowed set of proposals a committee can enact. For exampl
 
 A permission acts as a filter for incoming gov proposals, rejecting them at the handler if they do not have the required permissions. A permission can be any type with a method `Allows(p Proposal) bool`. The handler will reject all proposals that are not explicitly allowed. This allows permissions to be parameterized to allow fine grained control specified at runtime. For example a generic parameter permission type can allow a committee to only change a particular param, or only change params within a certain range.
 
+export default ({children}) => <Main>{children}</Main
 
-export default ({children}) => <Main>{children}</Main>
+>

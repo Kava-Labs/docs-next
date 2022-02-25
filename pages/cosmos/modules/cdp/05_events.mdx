@@ -1,8 +1,5 @@
 import Main from 'components/Main';
 
-
-
-
 # Events
 
 The cdp module emits the following events:
@@ -12,7 +9,7 @@ The cdp module emits the following events:
 ### MsgCreateCDP
 
 | Type        | Attribute Key | Attribute Value    |
-|-------------|---------------|--------------------|
+| ----------- | ------------- | ------------------ |
 | message     | module        | cdp                |
 | message     | sender        | `{sender address}' |
 | create_cdp  | cdp_id        | `{cdp id}'         |
@@ -24,7 +21,7 @@ The cdp module emits the following events:
 ### MsgWithdraw
 
 | Type    | Attribute Key  | Attribute Value       |
-|---------|--------------- |-----------------------|
+| ------- | -------------- | --------------------- |
 | message | cdp_withdrawal | `{collateral amount}' |
 | message | cdp_id         | `{cdp_id}'            |
 | message | module         | cdp                   |
@@ -33,7 +30,7 @@ The cdp module emits the following events:
 ### MsgDeposit
 
 | Type        | Attribute Key | Attribute Value    |
-|-------------|---------------|--------------------|
+| ----------- | ------------- | ------------------ |
 | message     | module        | cdp                |
 | message     | sender        | `{sender address}' |
 | cdp_deposit | cdp_id        | `{cdp id}'         |
@@ -42,7 +39,7 @@ The cdp module emits the following events:
 ### MsgDrawDebt
 
 | Type     | Attribute Key | Attribute Value    |
-|----------|---------------|--------------------|
+| -------- | ------------- | ------------------ |
 | message  | module        | cdp                |
 | message  | sender        | `{sender address}' |
 | cdp_draw | cdp_id        | `{cdp id}'         |
@@ -51,7 +48,7 @@ The cdp module emits the following events:
 ### MsgRepayDebt
 
 | Type          | Attribute Key | Attribute Value      |
-|---------------|---------------|----------------------|
+| ------------- | ------------- | -------------------- |
 | cdp_repayment | amount        | `{repayment amount}' |
 | cdp_repayment | cdp_id        | `{cdp id}'           |
 | cdp_close     | cdp_id        | `{cdp id}'           |
@@ -60,13 +57,14 @@ The cdp module emits the following events:
 
 ## BeginBlock
 
-| Type                    | Attribute Key | Attribute Value     |
-|-------------------------|---------------|---------------------|
-| cdp_liquidation         | module        | cdp                 |
-| cdp_liquidation         | cdp_id        | `{cdp id}'          |
-| cdp_liquidation         | deposit       | `{deposit}'         |
-| cdp_begin_blocker_error | module        | cdp                 |
-| cdp_begin_blocker_error | error_message | `{error}'           |
+| Type                    | Attribute Key | Attribute Value |
+| ----------------------- | ------------- | --------------- |
+| cdp_liquidation         | module        | cdp             |
+| cdp_liquidation         | cdp_id        | `{cdp id}'      |
+| cdp_liquidation         | deposit       | `{deposit}'     |
+| cdp_begin_blocker_error | module        | cdp             |
+| cdp_begin_blocker_error | error_message | `{error}'       |
 
+export default ({children}) => <Main>{children}</Main
 
-export default ({children}) => <Main>{children}</Main>
+>

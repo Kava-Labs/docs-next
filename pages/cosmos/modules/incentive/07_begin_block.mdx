@@ -1,8 +1,5 @@
 import Main from 'components/Main';
 
-
-
-
 # Begin Block
 
 At the start of each block, rewards are accumulated for each reward time. Accumulation refers to computing the total amount of rewards that have accumulated since the previous block and updating a global accumulator value such that whenever a `Claim` object is accessed, it is synchronized with the latest global state. This ensures that all rewards are accurately accounted for without having to iterate over each claim object in the begin blocker.
@@ -31,5 +28,6 @@ func BeginBlocker(ctx sdk.Context, k keeper.Keeper) {
 }
 ```
 
+export default ({children}) => <Main>{children}</Main
 
-export default ({children}) => <Main>{children}</Main>
+>

@@ -1,8 +1,5 @@
 import Main from 'components/Main';
 
-
-
-
 # Parameters
 
 Example parameters for the Hard module:
@@ -41,5 +38,6 @@ Example parameters for `InterestRateModel`:
 | Kink           | Dec  | "0.5"   | The inflection point of utilization at which the BaseMultiplier no longer applies and the JumpMultiplier does   |
 | JumpMultiplier | Dec  | "0.5"   | Same as BaseMultiplier, but only applied when utilization is above the Kink                                     |
 
+export default ({children}) => <Main>{children}</Main
 
-export default ({children}) => <Main>{children}</Main>
+>
