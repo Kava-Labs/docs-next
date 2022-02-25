@@ -4,22 +4,22 @@ import Main from 'components/Main';
 
 Example parameters for the Hard module:
 
-| Key                   | Type                | Example       | Description                                  |
-| --------------------- | ------------------- | ------------- | -------------------------------------------- |
-| MoneyMarkets          | array (MoneyMarket) | [{see below}] | Array of params for each supported market    |
-| MinimumBorrowUSDValue | sdk.Dec             | 10.0          | Minimum amount an individual user can borrow |
+| Key                   | Type                | Example        | Description                                  |
+| --------------------- | ------------------- | -------------- | -------------------------------------------- |
+| MoneyMarkets          | array (MoneyMarket) | [\{see below}] | Array of params for each supported market    |
+| MinimumBorrowUSDValue | sdk.Dec             | 10.0           | Minimum amount an individual user can borrow |
 
 Example parameters for `MoneyMarket`:
 
-| Key                    | Type              | Example       | Description                                                           |
-| ---------------------- | ----------------- | ------------- | --------------------------------------------------------------------- |
-| Denom                  | string            | "bnb"         | Coin denom of the asset which can be deposited and borrowed           |
-| BorrowLimit            | BorrowLimit       | [{see below}] | Borrow limits applied to this money market                            |
-| SpotMarketID           | string            | "bnb:usd"     | The market id which determines the price of the asset                 |
-| ConversionFactor       | Int               | "6"           | Conversion factor for one unit (ie BNB) to the smallest internal unit |
-| InterestRateModel      | InterestRateModel | [{see below}] | Model which determines the prevailing interest rate per block         |
-| ReserveFactor          | Dec               | "0.01"        | Percentage of interest that is kept as protocol reserves              |
-| KeeperRewardPercentage | Dec               | "0.02"        | Percentage of deposit rewarded to keeper who liquidates a position    |
+| Key                    | Type              | Example        | Description                                                           |
+| ---------------------- | ----------------- | -------------- | --------------------------------------------------------------------- |
+| Denom                  | string            | "bnb"          | Coin denom of the asset which can be deposited and borrowed           |
+| BorrowLimit            | BorrowLimit       | [\{see below}] | Borrow limits applied to this money market                            |
+| SpotMarketID           | string            | "bnb:usd"      | The market id which determines the price of the asset                 |
+| ConversionFactor       | Int               | "6"            | Conversion factor for one unit (ie BNB) to the smallest internal unit |
+| InterestRateModel      | InterestRateModel | [\{see below}] | Model which determines the prevailing interest rate per block         |
+| ReserveFactor          | Dec               | "0.01"         | Percentage of interest that is kept as protocol reserves              |
+| KeeperRewardPercentage | Dec               | "0.02"         | Percentage of deposit rewarded to keeper who liquidates a position    |
 
 Example parameters for `BorrowLimit`:
 
