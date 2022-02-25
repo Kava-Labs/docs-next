@@ -6,6 +6,7 @@ import Footer from './Footer';
 import Doc from './Doc'; 
 import { useEffect, useState } from 'react';
 import { renderToString } from 'react-dom/server';
+import { Box } from './library';
 
 
 // brings it all together in this case children will be the mardown file 
@@ -26,13 +27,18 @@ function Main({children}){
 
 
     return <>
+      
         <Header />
+        <Box display="flex">
         <LeftNav />
 
         <Doc html={html} />
 
         <RightNav toc={toc}/>
+        </Box>
         <Footer />
+    
+        
 
     </>; 
 };

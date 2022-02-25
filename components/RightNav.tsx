@@ -11,10 +11,10 @@ function RightNav({toc} : Props){
     const [active, setActive] = useState(0);
 
     return <>
-        <Box>
+        <Box display="flex" flexDirection="column" >
             <H3>Table</H3>
-            {toc.map(({title, id})=> {
-                return <Link href={"#"+id}>{title}</Link>
+            {toc.map(({title, id}, key)=> {
+                return <Link key={key} href={"#"+id}>{title}</Link>
             })}
         </Box>
     </>; 

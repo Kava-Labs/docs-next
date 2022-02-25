@@ -6,7 +6,7 @@
 function Header(){
 
     return <>
-        <header>
+        <header style={{height: "6vh", backgroundColor: "wheat", borderBottom: "solid grey", marginBottom: "2px"}}>
             head
         </header>
     </>;
