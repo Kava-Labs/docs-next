@@ -1,22 +1,29 @@
-import { useState } from 'react';
-import { Box, Link } from './library';
-import { H3 } from './library/Typography';
+import { Box, H5, H6, Link } from './library';
+import { InternalNavLink } from '../types';
+import { useMediaQuery, useTheme } from '@material-ui/core';
 
-// right Nav which will be on the right side of the markdown
 type Props = {
-  toc: { title: string; id: string }[];
+  internalNavLinks: InternalNavLink[];
 };
-function RightNav({ toc }: Props) {
-  const [active, setActive] = useState(0);
 
-  return (
+function RightNav({ internalNavLinks }: Props) {
+  const theme = useTheme();
+  const isMobile = !useMediaQuery(theme.breakpoints.up('md'));
+
+  return isMobile ? (
+    <>
+      <div style={{ backgroundColor: 'lightgrey', height: 'fit-content' }}>
+        On this page
+      </div>
+    </>
+  ) : (
     <>
       <Box display="flex" flexDirection="column">
-        <H3>Table</H3>
-        {toc.map(({ title, id }, key) => {
+        <H5>On This Page</H5>
+        {internalNavLinks.map(({ title, id }, key) => {
           return (
-            <Link key={key} href={'#' + id}>
-              {title}
+            <Link style={{ margin: '5px' }} key={key} href={'#' + id}>
+              <H6 color="textSecondary"> {title}</H6>
             </Link>
           );
         })}

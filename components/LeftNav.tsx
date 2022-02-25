@@ -1,11 +1,12 @@
 import { makeStyles } from '@material-ui/core';
-import { Box, H2 } from './library';
-import theme from 'styles';
-// left nav or left panel will contain a link for all the documentations we want to render
+import { Box } from './library';
 
-const useStyles = makeStyles(({ palette, typography }) => ({
+const useStyles = makeStyles(({ palette }) => ({
   leftNav: {
     backgroundColor: palette.grey[200],
+  },
+  listItem: {
+    margin: '6px',
   },
 }));
 
@@ -15,7 +16,10 @@ function LeftNav() {
   return (
     <>
       <Box width="15%" className={classes.leftNav}>
-        <H2>left nav</H2>
+        <li className={classes.listItem}>Intro to Kava Network</li>
+        <li className={classes.listItem}>Develop on Ethereum</li>
+        <li className={classes.listItem}>Develop on Cosmos</li>
+        <li className={classes.listItem}>Participate in Network</li>
       </Box>
     </>
   );
