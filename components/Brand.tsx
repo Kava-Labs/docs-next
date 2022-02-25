@@ -1,12 +1,6 @@
-
-// contains Kava logo and text "Developer Docs"
-
 function Brand(){
-
-    return <>
-        
-    </>;
+    return <>Kava | Developer Docs</>;
 };
 
 
-export default Brand; 
+export default Brand;

@@ -1,17 +1,33 @@
-// the main header component 
+import SocialLinks from "./SocialLinks";
+import Brand from "./Brand";
+import { createStyles, makeStyles } from "@material-ui/core";
 
-// will use SocailLinks, Search and Brand componets on desktop 
-// will need a burger on mobile 
+const useStyles = makeStyles((theme) => (
+  createStyles({
+  headerWrapper: {
+    backgroundColor: "grey",
+    height: "50px",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+})));
 
-function Header(){
+function Header() {
+  const classes = useStyles();
+    return (
+      <header className={classes.headerWrapper}>
+        <div style={{'marginLeft': '24px'}}>
+          <Brand />
+        </div>
+        <div style={{'display': 'flex', 'marginRight': '24px', 'alignItems': 'center'}}>
+          <SocialLinks />
+        </div>
+      </header>
 
-    return <>
-        <header>
-            head
-        </header>
-    </>;
-};
+
+    );
+}
 
 
-
-export default Header; 
+export default Header;

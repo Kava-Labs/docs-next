@@ -1,12 +1,32 @@
+import { Link } from "./library";
 
-// external social links Github, Twitter, etc component 
+interface SocialLink {
+    name: string;
+    url: string;
+}
 
-function SocialLinks(){
+function SocialLinks() {
+    const links: SocialLink[] = [
+        {
+            name: "Github",
+            url: "",
+        },
+        {
+            name: "Discord",
+            url: "",
+        },
+        {
+            name: "Twitter",
+            url: "",
+        },
+    ];
 
-    return <>
-        
-    </>;
-}; 
+    const displayedLinks = links.map((link, index) => (
+      <Link href={link.url} key={index}>{link.name}</Link>
+    ));
 
+    return <>{displayedLinks}</>;
+
+}
 
 export default SocialLinks;

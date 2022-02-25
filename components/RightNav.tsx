@@ -1,14 +1,8 @@
-
-
-// right Nav which will be on the right side of the markdown 
-
 function RightNav(){
 
-    return <>
-        right arm
-    </>; 
-}; 
+    return <div>Internal indexing</div>;
+};
 
 
 
-export default RightNav; 
+export default RightNav;
