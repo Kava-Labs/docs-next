@@ -10,12 +10,12 @@ import transformHtml from '../helpers/transformHtml';
 
 function Main({ children }) {
   const [html, setHtml] = useState('');
-  const [tableOfContents, setTableOfContents] = useState([]);
+  const [internalNavLinks, setInternalNavLinks] = useState([]);
 
   useEffect(() => {
-    const { html, tableOfContents } = transformHtml(renderToString(children));
+    const { html, internalNavLinks } = transformHtml(renderToString(children));
     setHtml(html);
-    setTableOfContents(tableOfContents);
+    setInternalNavLinks(internalNavLinks);
   }, [children]);
 
   return (
@@ -24,7 +24,7 @@ function Main({ children }) {
       <Box display="flex">
         <LeftNav />
         <Doc html={html} />
-        <RightNav tableOfContents={tableOfContents} />
+        <RightNav internalNavLinks={internalNavLinks} />
       </Box>
       <Footer />
     </>

@@ -1,16 +1,17 @@
 import { Box, Link } from './library';
 import { H3 } from './library/Typography';
+import { InternalNavLink } from '../types';
 
 type Props = {
-  tableOfContents: { title: string; id: string }[];
+  internalNavLinks: InternalNavLink[];
 };
 
-function RightNav({ tableOfContents }: Props) {
+function RightNav({ internalNavLinks }: Props) {
   return (
     <>
       <Box display="flex" flexDirection="column">
         <H3>On This Page</H3>
-        {tableOfContents.map(({ title, id }, key) => {
+        {internalNavLinks.map(({ title, id }, key) => {
           return (
             <Link key={key} href={'#' + id}>
               {title}

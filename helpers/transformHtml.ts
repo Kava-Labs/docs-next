@@ -3,13 +3,13 @@
 // note the nested loop is not going to cause this to be O(N^2)
 // because before we break out we increment i by how far we got with j similar to how sliding window works
 
-import { TransformedHTML } from '../types';
+import { InternalNavLink, TransformedHTML } from '../types';
 
 export default function transformHtml(htmlString: string): TransformedHTML {
   let transformedHTML = '';
   let currentTag = '';
 
-  const tableOfContents: { title: string; id: string }[] = [];
+  const internalNavLinks: InternalNavLink[] = [];
 
   for (let i = 0; i < htmlString.length; i++) {
     const currChar = htmlString.charAt(i);
@@ -42,7 +42,7 @@ export default function transformHtml(htmlString: string): TransformedHTML {
             titleContent += contentChar;
             titleId += contentChar === ' ' ? '_' : contentChar;
           } else {
-            tableOfContents.push({
+            internalNavLinks.push({
               title: titleContent,
               id: titleId,
             });
@@ -63,6 +63,6 @@ export default function transformHtml(htmlString: string): TransformedHTML {
 
   return {
     html: transformedHTML,
-    tableOfContents: tableOfContents,
+    internalNavLinks: internalNavLinks,
   };
 }
