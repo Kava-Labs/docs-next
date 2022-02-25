@@ -1,15 +1,23 @@
-import {renderToString} from 'react-dom/server';
 
 // container to render the markdown file 
-function Doc({children}){
-    
+type Props = {
+    html : string
+}
+
+function Doc({html} : Props){
+
+   
     return <>
-        <main dangerouslySetInnerHTML={{__html:`${renderToString(children)}` }}>
-    
+        <main dangerouslySetInnerHTML={{__html: html }}>
+
         </main>
     </>;
 
 };
 
+
+function transformHtml(htmlStr : string){
+
+};
 
 export default Doc; 
